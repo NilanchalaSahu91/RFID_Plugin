@@ -1,0 +1,25 @@
+{
+  "name": "com.balram.myfirstplugin",
+  "version": "1.0.0",
+  "description": "This is my first plugin",
+  "cordova": {
+    "id": "com.balram.myfirstplugin",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balramkola/CalciPlugin.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "Balram",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/balramkola/CalciPlugin/issues"
+  },
+  "homepage": "https://github.com/balramkola/CalciPlugin#readme"
+}

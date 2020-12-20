@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="com.balram.myfirstplugin" version="1.0.0">
+   <name>Calci</name>
+   <js-module name="Calci" src="www/Calci.js">
+      <clobbers target="cordova.plugins.Calci" />
+   </js-module>
+   <platform name="android">
+      <config-file parent="/*" target="res/xml/config.xml">
+         <feature name="Calci">
+            <param name="android-package" value="com.balram.myfirstplugin.Calci" />
+         </feature>
+      </config-file>
+      <config-file parent="/*" target="AndroidManifest.xml" />
+      <source-file src="src/android/Calci.java" target-dir="src/com/balram/myfirstplugin/Calci" />
+   </platform>
+   <platform name="ios">
+      <config-file parent="/*" target="config.xml">
+         <feature name="Calci">
+            <param name="ios-package" value="Calci" />
+         </feature>
+      </config-file>
+      <source-file src="src/ios/Calci.m" />
+      <framework src="libz.tbd" />
+      <framework src="ExternalAccessory.framework" />
+      <source-file src="src/ios/libsymbolbt-sdk.a" framework="true" />
+      <source-file src="src/ios/include/ISbtSdkApi.h" />
+      <source-file src="src/ios/include/FirmwareUpdateEvent.h" />
+      <source-file src="src/ios/include/ISbtSdkApiDelegate.h" />
+      <source-file src="src/ios/include/RMDAttributes.h" />
+      <source-file src="src/ios/include/SbtScannerInfo.h" />
+      <source-file src="src/ios/include/SbtSdkDefs.h" /> 
+      <source-file src="src/ios/include/SbtSdkFactory.h" />
+      <source-file src="src/ios/ScannerAppEngine.h" />
+
+
+      <source-file src="src/ios/TSLAppDelegate.h" />
+      <source-file src="src/ios/TSLAsciiCommands.framework/Headers/TSLAsciiCommands.h" />
+      <source-file src="src/ios/TSLAsciiCommands.framework/Headers/TSLBinaryEncoding.h" />
+      
+      <source-file src="src/ios/TSLSelectReaderProtocol.h" />
+      <source-file src="src/ios/TSLSelectReaderViewController.h" />
+      <source-file src="src/ios/TSLSelectReaderViewController.m" />
+
+      <framework src="src/ios/TSLAsciiCommands.framework"   embed="false" custom="true" />
+      <source-file src="src/ios/TSLAsciiCommands.framework" target-dir="lib" framework="true" />     
+      <framework src="UIKit.framework" />
+      <framework src="Foundation.framework" />
+      <framework src="CoreGraphics.framework" />
+      <framework src="CoreBluetooth.framework" />
+      <config-file target="*-Info.plist" parent="UISupportedExternalAccessoryProtocols">
+      <array>
+        <string>Zebra-RFID</string>
+      </array>
+      </config-file>
+      <config-file target="*-Info.plist" parent="NSBluetoothAlwaysUsageDescription">
+      <array>
+        <string>Zebra Scanner Control App uses Bluetooth to find, connect and communicate with nearby Zebra devices. Please grant access.</string>
+      </array>
+      </config-file>
+      <config-file target="*-Info.plist" parent="NSBluetoothPeripheralUsageDescription">
+      <array>
+        <string>Communicate with Zebra Scanners</string>
+      </array>
+      </config-file>
+   </platform>
+</plugin>
